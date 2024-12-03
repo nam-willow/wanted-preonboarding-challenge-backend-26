@@ -1,0 +1,12 @@
+.vscode
+
+# STS
+.project
+.classpath
+.settings
+
+# cursor
+.cursorrules
+
+# tomcat
+target/
