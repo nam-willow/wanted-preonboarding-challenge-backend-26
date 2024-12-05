@@ -1,12 +1,2 @@
-.vscode
-
-# STS
-.project
-.classpath
-.settings
-
-# cursor
-.cursorrules
-
-# tomcat
-target/
+.metadata
+node_modules
