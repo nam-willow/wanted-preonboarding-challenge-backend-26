@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>결제 로직</title>
+    {{! jQuery }}
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+    ></script>
+
+    {{! iamport.payment.js }}
+    <script
+      type="text/javascript"
+      src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+    ></script>
+
+    <script>
+      function requestPay() {
+        IMP.init("고객사 식별코드");
+        const param = {"cash": 22}
+        const callback = {"cash": 22}
+        IMP.request_pay(param, callback) // 결제창 호출
+        IMP.request_pay(
+          {
+            // ...
+            notice_url: "https://06ab-121-132-180-53.ngrok-free.app", //웹훅수신 URL 설정
+            // ...
+          },
+          function (rsp) {
+            // callback
+            if (rsp.success) {
+              console.log(rsp);
+            } else {
+              console.log(rsp);
+            }
+          },
+        );
+      }
+    </script>
+  </head>
+  <body>
+    {{!-- {{{body}}} --}}
+    {{! handlebars 템플릿의 모든 내용이 들어가게 됨 }}
+    <button onclick="requestPay()">결제하기</button>
+  </body>
+</html>
