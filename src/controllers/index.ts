@@ -1,8 +1,9 @@
 import express from "express";
 const router = express.Router();
 
-import web from "./webhook-controller";
+import webhook from "./webhook-controller";
+import payment from "./payment-controller";
 
-router.use("/", web);
+router.use("/", [webhook, payment]);
 
 export default router;
