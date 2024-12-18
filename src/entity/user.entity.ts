@@ -1,0 +1,48 @@
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn({ type: "int" })
+  id: number;
+
+  @Column({ type: "varchar" })
+  email: string;
+
+  @Column({ type: "varchar" })
+  password: string;
+
+  @Column({ type: "varchar" })
+  name: string;
+
+  @Column({ type: "varchar", nullable: true })
+  phone: string;
+
+  @Column({ type: "varchar", nullable: true })
+  address: string;
+
+  @Column({ type: "varchar", nullable: true })
+  postcode: string;
+
+  @Column({ type: "timestamp", nullable: false })
+  createDate: Date;
+
+  constructor(
+    id: number,
+    email: string,
+    password: string,
+    name: string,
+    phone: string,
+    address: string,
+    postcode: string,
+    createDate: Date
+  ) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+    this.name = name;
+    this.phone = phone;
+    this.address = address;
+    this.postcode = postcode;
+    this.createDate = createDate;
+  }
+}
