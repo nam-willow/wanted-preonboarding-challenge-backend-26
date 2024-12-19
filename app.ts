@@ -26,9 +26,7 @@ AppDataSource.initialize()
     console.log("Database connected!");
 
     // 서버 시작
-    app.listen(port, () => {
-      console.log(`서버가 ${port}번 포트에서 시작되었습니다.`);
-    });
+    app.listen(port, () => {});
   })
   .catch((error) => {
     console.error("Database connection failed:", error);
