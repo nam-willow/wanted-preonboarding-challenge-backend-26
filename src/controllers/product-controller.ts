@@ -8,7 +8,7 @@ const group = express.Router();
 /**
  * 제품 전체 조회
  */
-router.get("/product/select", async (req: Request, res: Response) => {
+router.get("/products", async (req: Request, res: Response) => {
   try {
     const result = await services.selectProduct();
     res.send(result);
@@ -20,12 +20,12 @@ router.get("/product/select", async (req: Request, res: Response) => {
  * 제품 전체 조회
  */
 router.get(
-  "/product/select/:id",
-  validators.params(["id"]),
+  "/products/:product_id",
+  validators.params(["product_id"]),
   async (req: Request, res: Response) => {
     try {
-      // console.log("제품 상세 조회 컨트롤러 id: ", req.params.id);
-      const productId: number = parseInt(req.params.id);
+      // console.log("제품 상세 조회 컨트롤러 id: ", req.params.product_id);
+      const productId: number = parseInt(req.params.product_id);
       const result = await services.selectDetailProduct(productId);
       res.send(result);
       // res.send("rnt");
