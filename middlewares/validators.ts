@@ -80,6 +80,6 @@ export const validators = {
 
 // 기본 paramsSchema 정의
 const paramsSchema: ParamsSchema = {
-  id: Joi.number().required().positive(),
+  product_id: Joi.number().required().positive(),
   // 다른 파라미터 추가 가능
 };
