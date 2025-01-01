@@ -24,7 +24,7 @@ export class User {
   postcode: string;
 
   @Column({ type: "timestamp", nullable: false })
-  createDate: string;
+  create_date: string;
 
   constructor(
     id: number,
@@ -34,7 +34,7 @@ export class User {
     phone: string,
     address: string,
     postcode: string,
-    createDate: string
+    create_date: string
   ) {
     this.id = id;
     this.email = email;
@@ -43,6 +43,6 @@ export class User {
     this.phone = phone;
     this.address = address;
     this.postcode = postcode;
-    this.createDate = createDate;
+    this.create_date = create_date;
   }
 }

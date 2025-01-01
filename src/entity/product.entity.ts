@@ -5,10 +5,13 @@ export class Products {
   @PrimaryGeneratedColumn({ type: "int" })
   id: number;
 
-  @Column({ type: "varchar", nullable: true, default: 1 })
+  @Column({ type: "int", nullable: false })
+  user_id: number;
+
+  @Column({ type: "int", nullable: false, default: 1 })
   stock: string;
 
-  @Column({ type: "varchar", nullable: true })
+  @Column({ type: "varchar", nullable: false })
   color: string;
 
   @Column({ type: "varchar", nullable: true })
@@ -20,24 +23,31 @@ export class Products {
   @Column({ type: "varchar", nullable: false })
   name: string;
 
+  @Column({ type: "int", nullable: false })
+  status: number;
+
   @Column({ type: "timestamp", nullable: false })
-  createDate: string;
+  create_date: string;
 
   constructor(
     id: number,
+    user_id: number,
     stock: string,
     color: string,
     size: string,
     amount: string,
     name: string,
-    createDate: string
+    status: number,
+    create_date: string
   ) {
     this.id = id;
+    this.user_id = user_id;
     this.stock = stock;
     this.color = color;
     this.size = size;
     this.amount = amount;
     this.name = name;
-    this.createDate = createDate;
+    this.status = status;
+    this.create_date = create_date;
   }
 }

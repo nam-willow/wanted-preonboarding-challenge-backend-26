@@ -15,7 +15,7 @@ export const services = {
       const productRepository = AppDataSource.getRepository(Products);
       const products = await productRepository.find({
         order: {
-          createDate: "DESC",
+          create_date: "DESC",
         },
       });
       await console.log(products);
@@ -30,15 +30,22 @@ export const services = {
   /**
    * 제품 상세조회
    */
-  selectDetailProduct: async (productId: number): Promise<Products[]> => {
+  selectDetailProduct: async (productId: number): Promise<Products> => {
     try {
       const productRepository = AppDataSource.getRepository(Products);
-      const products = await productRepository.find({
+      const [products] = await productRepository.find({
         where: { id: productId },
         order: {
-          createDate: "DESC",
+          create_date: "DESC",
         },
       });
+
+      // 등록되어있는 product_id인지 확인
+      if (!products) {
+        console.log("products not found");
+        throw { code: "NOT_FOUND", message: "일치하는 product_id가 없습니다." };
+      }
+
       await console.log(products);
       return products;
     } catch (error) {
